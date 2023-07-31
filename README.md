@@ -53,7 +53,7 @@ Find a Friend API é uma aplicação que facilita a adoção de animais de vári
 - [x] As organizações devem fornecer um endereço e um número de WhatsApp.
 - [x] Um animal deve estar associado a uma organização.
 - [x] Os usuários interessados em adoção entrarão em contato com a organização via WhatsApp.
-- [ ] Todos os filtros, exceto a cidade, são opcionais.
+- [x] Todos os filtros, exceto a cidade, são opcionais.
 - [x] As organizações precisam estar logadas como administradoras para acessar determinadas funcionalidades.
 
 ### Requisitos Não-Funcionais (RNFs)
