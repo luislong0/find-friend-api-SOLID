@@ -5,4 +5,5 @@ export interface PetsRepository {
   findByCity(query: string, page: number): Promise<Pet[]>
   findByCharacteristic(query: string, page: number): Promise<Pet[]>
   findById(id: string): Promise<Pet | null>
+  delete(petId: string): Promise<Pet[] | null>
 }

@@ -46,4 +46,12 @@ export class InMemoryAdoptionRequirementsRepository
 
     return editedRequirement
   }
+
+  async delete(adoptionId: string) {
+    const newAdoptionRequirements = this.items.filter(
+      (item) => item.id !== adoptionId,
+    )
+
+    return newAdoptionRequirements
+  }
 }

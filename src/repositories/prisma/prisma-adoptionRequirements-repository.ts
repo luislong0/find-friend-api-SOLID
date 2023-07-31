@@ -34,6 +34,16 @@ export class PrismaAdoptionRequirementsRepository
     return adoptionRequirement
   }
 
+  async delete(adoptionId: string) {
+    const adoptionRequirement = await prisma.adoptionRequirements.delete({
+      where: {
+        id: adoptionId,
+      },
+    })
+
+    return [adoptionRequirement]
+  }
+
   async findById(id: string) {
     const adoptionRequirement = await prisma.adoptionRequirements.findUnique({
       where: {

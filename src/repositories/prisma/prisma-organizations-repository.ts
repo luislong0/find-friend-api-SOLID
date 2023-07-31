@@ -11,6 +11,38 @@ export class PrismaOrganizationsRepository implements OrganizationsRepository {
     return organization
   }
 
+  async edit(organization: Prisma.OrganizationUncheckedUpdateInput) {
+    const adoptionRequirement = await prisma.organization.update({
+      where: {
+        id: organization.id!.toString(),
+      },
+      data: {
+        id: organization.id,
+        name: organization.name,
+        email: organization.email,
+        address: organization.address,
+        cep: organization.cep,
+        city: organization.city,
+        district: organization.district,
+        phone: organization.phone,
+        state: organization.state,
+        role: organization.role,
+      },
+    })
+
+    return adoptionRequirement
+  }
+
+  async findById(id: string) {
+    const organization = await prisma.organization.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    return organization
+  }
+
   async findByEmail(email: string) {
     const organization = await prisma.organization.findUnique({
       where: {

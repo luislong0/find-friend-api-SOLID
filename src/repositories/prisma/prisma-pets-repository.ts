@@ -87,4 +87,14 @@ export class PrismaPetsRepository implements PetsRepository {
 
     return pet
   }
+
+  async delete(petId: string) {
+    const pet = await prisma.pet.delete({
+      where: {
+        id: petId,
+      },
+    })
+
+    return [pet]
+  }
 }

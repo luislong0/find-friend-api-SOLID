@@ -3,6 +3,7 @@ import { verifyUserRole } from '@/http/middlewares/verify-user-role'
 import { FastifyInstance } from 'fastify'
 import { editAdoptionRequirements } from './edit-adoption-requirements'
 import { createAdoptionRequirements } from './create-adoption-requirements'
+import { deleteAdoptionRequirements } from './delete-adoption-requirements'
 
 export async function adoptionRequirementsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwt)
@@ -17,5 +18,11 @@ export async function adoptionRequirementsRoutes(app: FastifyInstance) {
     '/requirement/edit',
     { onRequest: [verifyUserRole('ADMIN')] },
     editAdoptionRequirements,
+  )
+
+  app.delete(
+    '/requirement/delete/:adoptionId',
+    { onRequest: [verifyUserRole('ADMIN')] },
+    deleteAdoptionRequirements,
   )
 }

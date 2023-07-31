@@ -6,6 +6,7 @@ import { verifyJwt } from '@/http/middlewares/verify-jwt'
 import { findPetByCharacteristic } from './find-pet-by-characteristic'
 import { findPetInformation } from './find-pet-information'
 import { findPetByCity } from './find-pets-by-city'
+import { deletePet } from './delete-pet'
 
 export async function petsRoutes(app: FastifyInstance) {
   // app.addHook('onRequest', verifyJwt)
@@ -18,5 +19,11 @@ export async function petsRoutes(app: FastifyInstance) {
     '/pet/create',
     { onRequest: [verifyJwt, verifyUserRole('ADMIN')] },
     createPet,
+  )
+
+  app.delete(
+    '/pet/delete/:petId',
+    { onRequest: [verifyJwt, verifyUserRole('ADMIN')] },
+    deletePet,
   )
 }

@@ -25,6 +25,30 @@ export class InMemoryOrganizationRepository implements OrganizationsRepository {
     return organization
   }
 
+  async edit(organizations: Organization) {
+    const organizationIndex = this.items.findIndex(
+      (item) => item.id === organizations.id,
+    )
+
+    if (organizationIndex >= 0) {
+      this.items[organizationIndex] = organizations
+    }
+
+    const editedOrganization = this.items[organizationIndex]
+
+    return editedOrganization
+  }
+
+  async findById(id: string) {
+    const organization = this.items.find((item) => item.id === id)
+
+    if (!organization) {
+      return null
+    }
+
+    return organization
+  }
+
   async findByEmail(email: string) {
     const organization = this.items.find((item) => item.email === email)
 
