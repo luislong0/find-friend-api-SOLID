@@ -37,7 +37,7 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pets
   }
 
-  async findByCharacteristic(query: string, page: number) {
+  async findByCharacteristic(query: string, page: number, city: string) {
     const pets = this.items
       .filter(
         (item) =>

@@ -10,9 +10,10 @@ export async function findPetByCharacteristic(
   const querySchema = z.object({
     query: z.string(),
     page: z.string().transform(Number),
+    city: z.string(),
   })
 
-  const { query, page } = querySchema.parse(request.query)
+  const { query, page, city } = querySchema.parse(request.query)
 
   let response
 
@@ -22,6 +23,7 @@ export async function findPetByCharacteristic(
     response = await findPetByCharacteristicUseCase.execute({
       query,
       page,
+      city,
     })
   } catch (err) {
     if (err instanceof ResourceNotFoundError) {

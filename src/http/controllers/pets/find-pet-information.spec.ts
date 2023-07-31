@@ -74,10 +74,10 @@ describe('Find pet information (e2e)', () => {
       })
 
     const petResponse = await request(app.server).get(
-      `/pet/characteristic?query=a&page=1`,
+      `/pet/characteristic?query=a&page=1&city=Palmital`,
     )
 
-    console.log('JSON BODY:  ' + JSON.stringify(petResponse.body[0].id))
+    console.log('JSON BODY:  ' + JSON.stringify(petResponse.body))
 
     const response = await request(app.server).get(
       `/pet/information/${petResponse.body[0].id}`,

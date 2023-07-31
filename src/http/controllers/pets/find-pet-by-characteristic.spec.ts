@@ -74,7 +74,7 @@ describe('Find pet by characteristic (e2e)', () => {
       })
 
     const response = await request(app.server).get(
-      `/pet/characteristic?query=a&page=1`,
+      `/pet/characteristic?query=a&page=1&city=Palmital`,
     )
 
     expect(response.status).toEqual(200)

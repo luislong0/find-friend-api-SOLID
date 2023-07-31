@@ -28,7 +28,7 @@ export class PrismaPetsRepository implements PetsRepository {
     return pets
   }
 
-  async findByCharacteristic(query: string, page: number) {
+  async findByCharacteristic(query: string, page: number, city: string) {
     const size = Size[query as keyof typeof Size]
     const independenceLevel = Size[query as keyof typeof Size]
     const environment = Size[query as keyof typeof Size]
@@ -70,6 +70,11 @@ export class PrismaPetsRepository implements PetsRepository {
             environment: environment || undefined,
           },
         ],
+        Organization: {
+          city: {
+            equals: city,
+          },
+        },
       },
       skip: (page - 1) * 20,
       take: 20,

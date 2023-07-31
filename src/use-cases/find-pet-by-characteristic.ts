@@ -5,6 +5,7 @@ import { ResourceNotFoundError } from './errors/resource-not-found-error'
 interface FindPetByCharacteristicUseCaseRequest {
   query: string
   page: number
+  city: string
 }
 
 interface FindPetByCharacteristicUseCaseResponse {
@@ -17,8 +18,13 @@ export class FindPetByCharacteristicUseCase {
   async execute({
     query,
     page,
+    city,
   }: FindPetByCharacteristicUseCaseRequest): Promise<FindPetByCharacteristicUseCaseResponse> {
-    const pets = await this.petsRepository.findByCharacteristic(query, page)
+    const pets = await this.petsRepository.findByCharacteristic(
+      query,
+      page,
+      city,
+    )
 
     if (pets.length === 0) {
       throw new ResourceNotFoundError()
