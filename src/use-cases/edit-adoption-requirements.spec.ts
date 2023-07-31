@@ -9,7 +9,7 @@ let petsRepository: InMemoryPetsRepository
 let adoptionsRequirementsRepository: AdoptionRequirementsRepository
 let sut: EditAdoptionRequirementsUseCase
 
-describe('Create Pet Use Case', () => {
+describe('Edit a adoption requirement Use Case', () => {
   beforeEach(() => {
     petsRepository = new InMemoryPetsRepository()
     adoptionsRequirementsRepository =

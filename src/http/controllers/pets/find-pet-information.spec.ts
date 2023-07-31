@@ -3,7 +3,7 @@ import { app } from '@/app'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-organization'
 
-describe('Find pet by characteristic (e2e)', () => {
+describe('Find pet information (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -12,7 +12,7 @@ describe('Find pet by characteristic (e2e)', () => {
     await app.close()
   })
 
-  it('should be able to find pets by characteristic', async () => {
+  it('should be able to find pets information', async () => {
     const { token, organizationId } = await createAndAuthenticateUser(app, true)
 
     await request(app.server)

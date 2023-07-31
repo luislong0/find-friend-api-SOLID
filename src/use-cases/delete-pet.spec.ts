@@ -7,13 +7,13 @@ import { RemovePetsUseCase } from './delete-pet'
 let petsRepository: InMemoryPetsRepository
 let sut: RemovePetsUseCase
 
-describe('Delete Adoption Requirements Use Case', () => {
+describe('Delete Pet Use Case', () => {
   beforeEach(() => {
     petsRepository = new InMemoryPetsRepository()
     sut = new RemovePetsUseCase(petsRepository)
   })
 
-  it('should be able to delete a adoption requirement', async () => {
+  it('should be able to delete a pet', async () => {
     const createPetResponse = await petsRepository.create({
       id: randomUUID(),
       name: 'arlindo',

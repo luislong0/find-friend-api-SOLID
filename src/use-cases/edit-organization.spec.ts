@@ -13,7 +13,7 @@ describe('Edit Organization Use Case', () => {
     sut = new EditOrganizationUseCase(organizationsRepository)
   })
 
-  it('should be able to edit a adoption requirement', async () => {
+  it('should be able to edit a organization', async () => {
     const organization = await organizationsRepository.create({
       name: 'Organização Fofa',
       email: 'organização.fofa@example.com',

@@ -7,7 +7,7 @@ import { ResourceNotFoundError } from './errors/resource-not-found-error'
 let petsRepository: InMemoryPetsRepository
 let sut: FindPetByCharacteristicUseCase
 
-describe('Find Pet By Character Use Case', () => {
+describe('Find Pet By Characteristic Use Case', () => {
   beforeEach(() => {
     petsRepository = new InMemoryPetsRepository()
     sut = new FindPetByCharacteristicUseCase(petsRepository)
